@@ -1,25 +1,24 @@
 const questionsWrapper = document.querySelector('.questions-wrapper');
 
 questionsWrapper.addEventListener('click', (event) => {
-
     if (event.target.classList.contains('clickable')) {
-    	const plusIcon = event.target;
-        const article = event.target.closest('article'); 
+
+        const clickedIcon = event.target;
+        const article = clickedIcon.closest('article'); 
         const paragraph = article.querySelector('p');
-        const articleWrapper = event.target.closest('.article-wrapper');
-        
-        if (articleWrapper.querySelector('img').src.includes('icon-plus.svg')) {
+        const articleWrapper = clickedIcon.closest('.article-wrapper');
+        const imgElement = articleWrapper.querySelector('img');
 
-        	paragraph.classList.remove('hidden');
-			articleWrapper.querySelector('img').src = "icon-minus.svg";
+        if (imgElement.src.includes('icon-plus.svg')) {
 
+            paragraph.classList.remove('hidden');
+            imgElement.src = "icon-minus.svg";
 
         } else {
 
-        	paragraph.classList.add('hidden');
-        	articleWrapper.querySelector('img').src = "icon-plus.svg";
+            paragraph.classList.add('hidden');
+            imgElement.src = "icon-plus.svg";
             
         }
-        
     }
 });
